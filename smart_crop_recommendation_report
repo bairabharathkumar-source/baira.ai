@@ -1,0 +1,121 @@
+# Smart Crop Recommendation System — Project Report
+
+**Submitted by:** BAIRA BHARATH KUMAR
+**Registration No.:** 24BCY10101
+**Subject:** Programming in Java
+**Department:** B.Tech (CYBER SECURITY)
+
+---
+
+## 1. Introduction
+
+A Java-based console application that recommends a suitable crop based on soil and environmental conditions — Nitrogen, Phosphorus, Potassium, Temperature, Humidity, Rainfall, and Soil pH. Entered values are compared against predefined crop ranges to calculate a suitability score, and the crop with the highest score is recommended.
+
+## 2. Objectives
+
+- Recommend suitable crops using soil and environmental data
+- Implement Object-Oriented Programming (OOP) concepts in Java
+- Calculate crop suitability scores
+- Provide a simple, user-friendly console application
+- Handle invalid inputs using exception handling
+
+## 3. Key Features
+
+- Accepts 7 soil/environmental parameters as input
+- Supports **6 crops**: Rice, Wheat, Maize, Cotton, Sugarcane, Pulses
+- Calculates a suitability score out of 100
+- Recommends the highest-scoring crop
+- Validates input and handles exceptions
+- Uses an `ArrayList` to store crop data
+
+## 4. Input Parameters
+
+| Parameter | Description |
+|---|---|
+| Nitrogen (N) | Nitrogen level in soil |
+| Phosphorus (P) | Phosphorus level in soil |
+| Potassium (K) | Potassium level in soil |
+| Temperature | Environmental temperature |
+| Humidity | Environmental humidity |
+| Rainfall | Amount of rainfall |
+| Soil pH | Acidity/alkalinity of soil |
+
+## 5. Working of the System
+
+```
+Enter Soil & Environmental Data → Validate Input → Create SoilData Object
+→ Compare with Crop Ranges → Calculate Suitability Score
+→ Find Highest Score → Recommend Crop → Display Result
+```
+
+Each entered parameter is compared against every crop's suitable range; matching parameters add points to that crop's score. The crop with the highest total score is recommended.
+
+## 6. Suitability Score Breakdown (out of 100)
+
+| Parameter | Score |
+|---|---|
+| Nitrogen | 15 |
+| Phosphorus | 15 |
+| Potassium | 15 |
+| Temperature | 15 |
+| Humidity | 10 |
+| Rainfall | 15 |
+| Soil pH | 15 |
+| **Total** | **100** |
+
+## 7. OOP Concepts Used
+
+- **Encapsulation** — private fields with getter methods in `SoilData` and `Crop`
+- **Classes & Objects** — `SoilData`, `Crop`, `CropRecommendationService`, `Main`
+- **Constructors** — initialize `SoilData` and `Crop` objects
+- **Collections** — `ArrayList<Crop>` stores crop data
+- **Exception Handling** — handles `InputMismatchException` and `IllegalArgumentException`
+
+## 8. Class Overview
+
+| Class | Responsibility |
+|---|---|
+| `SoilData` | Stores the 7 input parameters with getters |
+| `Crop` | Stores crop name, min/max ranges; has `calculateScore()` |
+| `CropRecommendationService` | Maintains crop `ArrayList`; has `recommendCrop()`, `getScore()` |
+| `Main` | Takes input, validates, creates objects, displays result |
+
+## 9. Sample Run
+
+**Input:** N=80, P=40, K=40, Temp=27°C, Humidity=75%, Rainfall=200mm, pH=6.5
+
+**Output:**
+```
+Recommended Crop : Rice
+Suitability Score : 100%
+```
+
+## 10. Input Validation
+
+- N, P, K, and Rainfall cannot be negative
+- Humidity must be between 0–100
+- Soil pH must be between 0–14
+- Non-numeric input triggers: `Error: Please enter numeric values only.`
+
+## 11. Advantages
+
+- Simple, easy-to-use console application
+- Demonstrates core Java OOP concepts
+- Automatic crop selection with input validation
+- No external libraries required
+
+## 12. Limitations
+
+Uses predefined ranges and rule-based scoring — no ML model, live weather data, or database integration. Intended as an academic demonstration of Java/OOP, not a production agricultural tool.
+
+## 13. Future Enhancements
+
+- GUI (JavaFX/Swing) and database connectivity
+- More crop types and region-specific recommendations
+- Real agricultural datasets and live weather data
+- ML-based recommendation engine
+- User login, farmer profiles, and recommendation history
+
+## 14. Conclusion
+
+The Smart Crop Recommendation System demonstrates how Java and OOP principles (classes, objects, encapsulation, constructors, collections, exception handling) can be applied to solve a practical agricultural problem — comparing soil/environmental inputs against crop ranges to generate a data-driven recommendation.
